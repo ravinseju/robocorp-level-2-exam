@@ -10,7 +10,7 @@ Library    RPA.Archive
 *** Variables ***
 ${ORDER_URL}=                   https://robotsparebinindustries.com/#/robot-order
 ${FILE_URL}=                    https://robotsparebinindustries.com/orders.csv
-${GLOBAL_RETRY_AMOUNT}=         3x
+${GLOBAL_RETRY_AMOUNT}=         5x
 ${GLOBAL_RETRY_INTERVAL}=       0.5s
 
 *** Tasks ***
@@ -79,7 +79,7 @@ Embed the robot screenshot to the receipt PDF file
 Archive receipts
     Archive Folder With Zip
     ...    folder=${OUTPUT_DIR}
-    ...    archive_name=robot_orders.zip
+    ...    archive_name=${OUTPUT_DIR}${/}robot_orders.zip
     ...    include=*.pdf
     
 Close the browser
